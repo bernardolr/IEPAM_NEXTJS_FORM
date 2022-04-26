@@ -30,32 +30,44 @@ export default function form() {
         router.push('/thankyou');
     };
 
+    //{errors.firstName?.message}
+    // {errors.lastName?.message}
+    // {errors.secondLastName?.message}
+    // {errors.Email?.message}
+    // {errors.Message?.message}
+
+
+
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             {console.log(errors)}
 
             <input type='text' placeholder='Nombre' id='first' {...register("firstName")} name="firstName" />
 
-            {errors.firstName?.message}
+            {errors.firstName && 'Nombre es requerido'}
 
             <input type='text' placeholder='Primer apellido' id='last' {...register("lastName")} name="lastName"/>
 
-            {errors.lastName?.message}
+            
+            {errors.lastName && 'Primer apellido es requerido'}
 
-            <input type='text' placeholder='Segundo apellido' id='second last' {...register("lastName")} name="secondLastName"/>
+            <input type='text' placeholder='Segundo apellido' id='second last' {...register("secondLastName")} name="secondLastName"/>
 
-            {errors.secondLastName?.message}
+            
+            {errors.secondLastName && 'Segundo apellido es requerido'}
 
             <input type='email' placeholder='Correo electrónico' id='email' {...register("Email")} name="Email"/>
 
-            {errors.Email?.message}
+            
+            {errors.Email && 'Correo es requerido'}
 
             <input type='textarea' placeholder='Mensaje' id='message' {...register("Message")} name="Message"/>
 
-            {errors.Message?.message}
+            
+            {errors.Message && 'Mensaje es requerido'}
 
             
-            <button type='submit'>Submit</button>
+            <button type='submit' className='btn btn-primary'>Enviar</button>
 
         </form>
     )
