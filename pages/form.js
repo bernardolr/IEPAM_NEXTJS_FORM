@@ -13,6 +13,7 @@ export default function form() {
         secondLastName: yup.string().required().max(100),
         Email: yup.string().required().email(),
         Message: yup.string().required(),
+        File: yup.string().required(),
     }).required()
 
     const { register, handleSubmit, formState: {errors}} = useForm({resolver: yupResolver(schema),
@@ -42,49 +43,64 @@ export default function form() {
         <form onSubmit={handleSubmit(onSubmit)}>
             {console.log(errors)}
             <ul>
-                <li class=''>
-                <input type='text' placeholder='Nombre' id='first' {...register("firstName")} name="firstName" />
+                <li class="mb-3">
+                <input class='form-control' type='text' placeholder='Nombre' id='first' {...register("firstName")} name="firstName" />
 
-                {errors.firstName && '  Nombre es requerido'}
-
-                </li>
-                <li>
-                    <input type='text' placeholder='Primer apellido' id='last' {...register("lastName")} name="lastName"/>
-
-
-                    {errors.lastName && '   Primer apellido es requerido'}
+                <div class="red">
+                    {errors.firstName && '  Nombre es requerido'}
+                </div>      
 
                 </li>
+                <li class="mb-3">
+                    <input class='form-control' type='text' placeholder='Primer apellido' id='last' {...register("lastName")} name="lastName"/>
 
-                <li>
-                    <input type='text' placeholder='Segundo apellido' id='second last' {...register("secondLastName")} name="secondLastName"/>
+                    <div class="red">
+                        {errors.lastName && '   Primer apellido es requerido'}
+                    </div>
 
+                </li>
 
-                    {errors.secondLastName && ' Segundo apellido es requerido'}
+                <li class="mb-3">
+                    <input class='form-control' type='text' placeholder='Segundo apellido' id='second last' {...register("secondLastName")} name="secondLastName"/>
+
+                    <div class="red">
+                        {errors.secondLastName && ' Segundo apellido es requerido'}
+                    </div>  
                     
                 </li>
 
-                <li>
-                    <input type='email' placeholder='Correo electrónico' id='email' {...register("Email")} name="Email"/>
+                <li class="mb-3">
+                    <input class='form-control' type='email' placeholder='Correo electrónico' id='email' {...register("Email")} name="Email"/>
 
-
-                    {errors.Email && '  Correo es requerido'}
+                    <div class="red">
+                        {errors.Email && '  Correo es requerido'}
+                    </div>
                     
                 </li>
 
-                <li>
-                    <input type='textarea' placeholder='Mensaje' id='message' {...register("Message")} name="Message"/>
+                <li class="mb-3">
+                    <input class='form-control' type='textarea' placeholder='Mensaje' id='message' {...register("Message")} name="Message"/>
 
 
-                    {errors.Message && '    Mensaje es requerido'}
+                    <div class="red">
+                        {errors.Message && '    Mensaje es requerido'}
+
+                    </div>
+                </li>
+                <li class="mb-3">
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label">Elige uno o más archivos</label>
+                        <input class="form-control" type="file" id="formFileMultiple" multiple/>
+                        
+                        <div class="red">
+                            {errors.File && '    Archivos son requeridos'}
+                        </div>
+                        
+                    </div>
                     
                 </li>
+                    
                 
-
-                
-
-
-
 
                 <div class="text-end">
                     
