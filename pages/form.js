@@ -41,33 +41,61 @@ export default function form() {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             {console.log(errors)}
+            <ul>
+                <li class=''>
+                <input type='text' placeholder='Nombre' id='first' {...register("firstName")} name="firstName" />
 
-            <input type='text' placeholder='Nombre' id='first' {...register("firstName")} name="firstName" />
+                {errors.firstName && '  Nombre es requerido'}
 
-            {errors.firstName && 'Nombre es requerido'}
+                </li>
+                <li>
+                    <input type='text' placeholder='Primer apellido' id='last' {...register("lastName")} name="lastName"/>
 
-            <input type='text' placeholder='Primer apellido' id='last' {...register("lastName")} name="lastName"/>
+
+                    {errors.lastName && '   Primer apellido es requerido'}
+
+                </li>
+
+                <li>
+                    <input type='text' placeholder='Segundo apellido' id='second last' {...register("secondLastName")} name="secondLastName"/>
+
+
+                    {errors.secondLastName && ' Segundo apellido es requerido'}
+                    
+                </li>
+
+                <li>
+                    <input type='email' placeholder='Correo electrónico' id='email' {...register("Email")} name="Email"/>
+
+
+                    {errors.Email && '  Correo es requerido'}
+                    
+                </li>
+
+                <li>
+                    <input type='textarea' placeholder='Mensaje' id='message' {...register("Message")} name="Message"/>
+
+
+                    {errors.Message && '    Mensaje es requerido'}
+                    
+                </li>
+                
+
+                
+
+
+
+
+                <div class="text-end">
+                    
+                    <button type='submit' className='btn btn-primary'>Enviar</button>
+
+                </div>
+                
+
+            </ul>
 
             
-            {errors.lastName && 'Primer apellido es requerido'}
-
-            <input type='text' placeholder='Segundo apellido' id='second last' {...register("secondLastName")} name="secondLastName"/>
-
-            
-            {errors.secondLastName && 'Segundo apellido es requerido'}
-
-            <input type='email' placeholder='Correo electrónico' id='email' {...register("Email")} name="Email"/>
-
-            
-            {errors.Email && 'Correo es requerido'}
-
-            <input type='textarea' placeholder='Mensaje' id='message' {...register("Message")} name="Message"/>
-
-            
-            {errors.Message && 'Mensaje es requerido'}
-
-            
-            <button type='submit' className='btn btn-primary'>Enviar</button>
 
         </form>
     )
