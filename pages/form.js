@@ -13,7 +13,7 @@ export default function form() {
         secondLastName: yup.string().required().max(100),
         Email: yup.string().required().email(),
         Message: yup.string().required(),
-        File: yup.string().required(),
+        //File: yup.string().required(),
     }).required()
 
     const { register, handleSubmit, formState: {errors}} = useForm({resolver: yupResolver(schema),
@@ -36,6 +36,7 @@ export default function form() {
     // {errors.secondLastName?.message}
     // {errors.Email?.message}
     // {errors.Message?.message}
+    //{errors.File && '    Archivos son requeridos'}
 
 
 
@@ -87,24 +88,13 @@ export default function form() {
 
                     </div>
                 </li>
-                <li class="mb-3">
-                    <div class="mb-3">
-                        <label for="formFileMultiple" class="form-label">Elige uno o más archivos</label>
-                        <input class="form-control" type="file" id="formFileMultiple" multiple/>
-                        
-                        <div class="red">
-                            {errors.File && '    Archivos son requeridos'}
-                        </div>
-                        
-                    </div>
-                    
-                </li>
+                
                     
                 
 
                 <div class="text-end">
                     
-                    <button type='submit' className='btn btn-primary'>Enviar</button>
+                    <button type='submit' class='btn btn-primary'>Enviar</button>
 
                 </div>
                 

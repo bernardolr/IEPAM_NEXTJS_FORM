@@ -6,9 +6,12 @@ export default function Home() {
   return (
     <div class="bg-gray-50">
       <div class="container ">
-        <div id="iepamLogo" class="text-center">
-          <img src='../images/iepamLogo.png'/>
+        <div class="mb-5">
+          <div class="text-center">
+            <img src='../images/iepamLogo.png'/>
+          </div>
         </div>
+        
         <div class="col-sm-12">
           <div class='card' >
             <h5 class='card-header'>Formulario</h5>
